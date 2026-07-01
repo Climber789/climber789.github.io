@@ -316,6 +316,7 @@
     <div class="topbar-name">Patrik <span>Novák</span></div>
     <div class="topnav">
       <button class="tnav" onclick="show('exp',this)">Experience</button>
+      <button class="tnav" onclick="show('projects',this)">Projects</button>
       <button class="tnav" onclick="show('skills',this)">Skills</button>
       <button class="tnav" onclick="show('edu',this)">Education</button>
       <button class="tnav" onclick="show('certs',this)">Certs</button>
@@ -336,7 +337,7 @@
     </p>
     <div class="hero-chips">
       <span class="chip hi"><i class="ti ti-shield-lock"></i>Cybersecurity</span>
-      <span class="chip hi"><i class="ti ti-code"></i>Python · Svelte · TypeScript</span>
+      <span class="chip hi"><i class="ti ti-code"></i>Python · Java · TypeScript</span>
       <span class="chip hi"><i class="ti ti-server"></i>REST APIs</span>
       <span class="chip"><i class="ti ti-school"></i>FI MUNI · Brno</span>
       <span class="chip"><i class="ti ti-map-pin"></i>Slovakia</span>
@@ -372,6 +373,7 @@
     <div class="side-label">Sections</div>
     <nav class="snav">
       <button class="sn active" onclick="show('exp',this)"><i class="ti ti-briefcase"></i>Experience</button>
+      <button class="sn" onclick="show('projects',this)"><i class="ti ti-code"></i>Projects</button>
       <button class="sn" onclick="show('skills',this)"><i class="ti ti-tool"></i>Skills</button>
       <button class="sn" onclick="show('edu',this)"><i class="ti ti-school"></i>Education</button>
       <button class="sn" onclick="show('certs',this)"><i class="ti ti-certificate"></i>Certifications</button>
@@ -425,12 +427,26 @@
       </div>
     </div>
 
+    <div id="projects" class="section">
+      <div class="sec-hd"><i class="ti ti-code"></i><h2>Projects</h2></div>
+      <div class="edu-card">
+        <div class="edu-deg">Chess & Draughts Game Engine — Java</div>
+        <div class="edu-uni">Semester project · Object-oriented programming</div>
+        <div class="edu-note">Console-based chess and draughts engine with full move logic, promotion, and save / load of board layouts (custom text format and JSON export). Built around clean OOP design and several design patterns — Strategy, Builder, Factory Method, Prototype, and Template Method — together with generics, collections, streams, and custom exceptions.</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-deg">Mini SQL Database Engine — Java</div>
+        <div class="edu-uni">Course project</div>
+        <div class="edu-note">A compact SQLite-like relational database built from scratch: a table / row / column model with typed values (INTEGER, REAL, TEXT) and a fluent query DSL for CREATE, INSERT, and SELECT. Extended with advanced querying (WHERE, GROUP BY, HAVING, ORDER BY, LIMIT / OFFSET), column indexing for faster lookups, UPDATE / DELETE / ALTER, and CSV export — behind clean, interface-driven abstractions.</div>
+      </div>
+    </div>
+
     <div id="skills" class="section">
       <div class="sec-hd"><i class="ti ti-tool"></i><h2>Skills</h2></div>
       <div class="sk-block">
         <div class="sk-lbl">Languages</div>
         <div class="sk-wrap">
-          <span class="sk hi">Python</span><span class="sk hi">TypeScript</span><span class="sk hi">JavaScript</span><span class="sk hi">C</span><span class="sk">HTML</span><span class="sk">CSS</span>
+          <span class="sk hi">Python</span><span class="sk hi">Java</span><span class="sk hi">TypeScript</span><span class="sk hi">JavaScript</span><span class="sk hi">C</span><span class="sk">HTML</span><span class="sk">CSS</span>
         </div>
       </div>
       <div class="sk-block">
@@ -442,7 +458,7 @@
       <div class="sk-block">
         <div class="sk-lbl">Backend & databases</div>
         <div class="sk-wrap">
-          <span class="sk hi">REST APIs</span><span class="sk">Falcon</span><span class="sk">Web2py</span><span class="sk hi">PostgreSQL</span>
+          <span class="sk hi">REST APIs</span><span class="sk">Falcon</span><span class="sk">Web2py</span><span class="sk hi">PostgreSQL</span><span class="sk">OOP & design patterns</span>
         </div>
       </div>
       <div class="sk-block">
@@ -456,9 +472,14 @@
     <div id="edu" class="section">
       <div class="sec-hd"><i class="ti ti-school"></i><h2>Education</h2></div>
       <div class="edu-card">
+        <div class="edu-deg">Engineer's Degree (Ing.) — Software Engineering</div>
+        <div class="edu-uni">Faculty of Informatics, Masaryk University (FI MUNI) · 2026–2028</div>
+        <div class="edu-note">Graduate studies in software engineering, building on my cybersecurity background.</div>
+      </div>
+      <div class="edu-card">
         <div class="edu-deg">Bachelor's in Cybersecurity</div>
-        <div class="edu-uni">Faculty of Informatics, Masaryk University (FI MUNI)</div>
-        <div class="edu-note">Secondary specialization in Programming and Application Development. Coursework spans core cybersecurity topics alongside software engineering, algorithms, and application development.</div>
+        <div class="edu-uni">Faculty of Informatics, Masaryk University (FI MUNI) · 2023–2026</div>
+        <div class="edu-note">Completed programming and application-development courses alongside the cybersecurity major, spanning software engineering, algorithms, and application development.</div>
       </div>
     </div>
 
@@ -473,11 +494,6 @@
           <div class="cert-ico"><i class="ti ti-brain"></i></div>
           <div><div class="cert-name">IQ Test — IQ 134</div><div class="cert-by">Mensa SR</div></div>
         </div>
-        <div class="cert-card">
-          <div class="cert-ico"><i class="ti ti-shield-half"></i></div>
-          <div><div class="cert-name">CompTIA Security+</div><div class="cert-by">CompTIA</div></div>
-          <span class="cert-badge">In progress</span>
-        </div>
       </div>
     </div>
 
@@ -489,16 +505,16 @@
           <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
         </div>
         <div class="lang-card">
-          <div class="lang-top"><div class="lang-flag">🇨🇿</div><div><div class="lang-name">Czech</div><div class="lang-lv">Professional</div></div></div>
-          <div class="lang-bar"><div class="lang-fill" style="width:95%"></div></div>
+          <div class="lang-top"><div class="lang-flag">🇨🇿</div><div><div class="lang-name">Czech</div><div class="lang-lv">Conversational</div></div></div>
+          <div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div>
         </div>
         <div class="lang-card">
-          <div class="lang-top"><div class="lang-flag">🇬🇧</div><div><div class="lang-name">English</div><div class="lang-lv">Professional</div></div></div>
-          <div class="lang-bar"><div class="lang-fill" style="width:88%"></div></div>
+          <div class="lang-top"><div class="lang-flag">🇬🇧</div><div><div class="lang-name">English</div><div class="lang-lv">B2 — Upper-intermediate</div></div></div>
+          <div class="lang-bar"><div class="lang-fill" style="width:70%"></div></div>
         </div>
         <div class="lang-card">
-          <div class="lang-top"><div class="lang-flag">🇩🇪</div><div><div class="lang-name">German</div><div class="lang-lv">Elementary</div></div></div>
-          <div class="lang-bar"><div class="lang-fill" style="width:20%"></div></div>
+          <div class="lang-top"><div class="lang-flag">🇩🇪</div><div><div class="lang-name">German</div><div class="lang-lv">A2 — Elementary</div></div></div>
+          <div class="lang-bar"><div class="lang-fill" style="width:22%"></div></div>
         </div>
       </div>
     </div>
@@ -510,14 +526,14 @@
           <i class="ti ti-brand-linkedin"></i>
           <div>
             <div class="contact-lbl">LinkedIn</div>
-            <div class="contact-val"><a href="https://www.linkedin.com/in/patrik-nov%C3%A1k-81896033b/" target="_blank">linkedin.com/in/patrik-novák</a></div>
+            <div class="contact-val"><a href="https://www.linkedin.com/in/patrik-nov%C3%A1k-81896033b/" target="_blank">linkedin.com/in/patrik-novák-81896033b</a></div>
           </div>
         </div>
         <div class="contact-row">
           <i class="ti ti-map-pin"></i>
           <div>
             <div class="contact-lbl">Location</div>
-            <div class="contact-val">Slovakia / Czech Republic</div>
+            <div class="contact-val">Brno, Czech Republic / Slovakia</div>
           </div>
         </div>
       </div>
@@ -530,7 +546,7 @@
 </div>
 
 <footer>
-  <div class="wrapper">Patrik Novák · Cybersecurity & Software Development · 2025</div>
+  <div class="wrapper">Patrik Novák · Cybersecurity & Software Development · 2026</div>
 </footer>
 
 <script>
