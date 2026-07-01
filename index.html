@@ -562,13 +562,30 @@
     links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) setActive(entry.target.id);
-    });
-  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+  function onScroll() {
+    // At (or near) the bottom of the page → the last section is current.
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      setActive(sections[sections.length - 1].id);
+      return;
+    }
+    // Otherwise the current section is the last one whose top has passed the threshold.
+    const threshold = 120; // accounts for the sticky navbar
+    let current = sections[0].id;
+    for (const s of sections) {
+      if (s.getBoundingClientRect().top <= threshold) current = s.id;
+    }
+    setActive(current);
+  }
 
-  sections.forEach(s => observer.observe(s));
+  let ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () { onScroll(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
 })();
 </script>
 </body>
