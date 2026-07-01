@@ -53,7 +53,7 @@
   .topbar-name { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
   .topbar-name span { color: var(--blue); }
   .topnav { display: flex; gap: 4px; }
-  .tnav { font-size: 13px; padding: 6px 12px; border-radius: 8px; border: none; background: transparent; color: var(--text2); cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.15s, color 0.15s; }
+  .tnav { font-size: 13px; padding: 6px 12px; border-radius: 8px; border: none; background: transparent; color: var(--text2); cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.15s, color 0.15s; text-decoration: none; }
   .tnav:hover, .tnav.active { background: var(--bg3); color: var(--text); }
   .tnav.active { color: var(--blue); }
 
@@ -149,8 +149,10 @@
   }
 
   .sidebar {
-    border-right: 0.5px solid var(--border);
     padding: 32px 20px;
+    position: sticky;
+    top: 76px;
+    align-self: start;
   }
   .side-label {
     font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
@@ -163,14 +165,15 @@
     border: none; background: transparent; color: var(--text2);
     cursor: pointer; text-align: left; font-family: 'Inter', sans-serif;
     transition: background 0.15s, color 0.15s; width: 100%;
+    text-decoration: none;
   }
   .sn i { font-size: 17px; flex-shrink: 0; }
   .sn.active { background: var(--blue-dim); color: var(--blue); font-weight: 500; }
   .sn:hover:not(.active) { background: var(--bg3); color: var(--text); }
 
-  .main { padding: 36px; }
-  .section { display: none; }
-  .section.active { display: block; }
+  .main { padding: 36px; border-left: 0.5px solid var(--border); }
+  .section { display: block; scroll-margin-top: 84px; }
+  .section + .section { margin-top: 52px; }
 
   .sec-hd {
     display: flex; align-items: center; gap: 10px;
@@ -298,9 +301,9 @@
 
   @media (max-width: 700px) {
     .body-grid { grid-template-columns: 1fr; }
-    .sidebar { border-right: none; border-bottom: 0.5px solid var(--border); padding: 20px 16px; }
+    .sidebar { border-bottom: 0.5px solid var(--border); padding: 20px 16px; position: static; top: auto; }
     .snav { flex-direction: row; flex-wrap: wrap; }
-    .main { padding: 24px 16px; }
+    .main { padding: 24px 16px; border-left: none; }
     .stats { grid-template-columns: 1fr; }
     .stat { border-right: none; border-bottom: 0.5px solid var(--border); padding: 20px 24px; }
     .stat:last-child { border-bottom: none; }
@@ -315,12 +318,12 @@
   <div class="wrapper topbar-inner">
     <div class="topbar-name">Patrik <span>Novák</span></div>
     <div class="topnav">
-      <button class="tnav" onclick="show('exp',this)">Experience</button>
-      <button class="tnav" onclick="show('projects',this)">Projects</button>
-      <button class="tnav" onclick="show('skills',this)">Skills</button>
-      <button class="tnav" onclick="show('edu',this)">Education</button>
-      <button class="tnav" onclick="show('certs',this)">Certs</button>
-      <button class="tnav" onclick="show('contact',this)">Contact</button>
+      <a class="tnav" href="#exp">Experience</a>
+      <a class="tnav" href="#projects">Projects</a>
+      <a class="tnav" href="#skills">Skills</a>
+      <a class="tnav" href="#edu">Education</a>
+      <a class="tnav" href="#certs">Certs</a>
+      <a class="tnav" href="#contact">Contact</a>
     </div>
   </div>
 </nav>
@@ -346,7 +349,7 @@
       <a href="https://www.linkedin.com/in/patrik-nov%C3%A1k-81896033b/" target="_blank" class="btn-p">
         <i class="ti ti-brand-linkedin"></i> LinkedIn
       </a>
-      <a href="#contact" class="btn-s" onclick="show('contact',null)">
+      <a href="#contact" class="btn-s">
         <i class="ti ti-send"></i> Get in touch
       </a>
     </div>
@@ -372,19 +375,19 @@
   <aside class="sidebar">
     <div class="side-label">Sections</div>
     <nav class="snav">
-      <button class="sn active" onclick="show('exp',this)"><i class="ti ti-briefcase"></i>Experience</button>
-      <button class="sn" onclick="show('projects',this)"><i class="ti ti-code"></i>Projects</button>
-      <button class="sn" onclick="show('skills',this)"><i class="ti ti-tool"></i>Skills</button>
-      <button class="sn" onclick="show('edu',this)"><i class="ti ti-school"></i>Education</button>
-      <button class="sn" onclick="show('certs',this)"><i class="ti ti-certificate"></i>Certifications</button>
-      <button class="sn" onclick="show('langs',this)"><i class="ti ti-world"></i>Languages</button>
-      <button class="sn" onclick="show('contact',this)"><i class="ti ti-send"></i>Contact</button>
+      <a class="sn active" href="#exp"><i class="ti ti-briefcase"></i>Experience</a>
+      <a class="sn" href="#projects"><i class="ti ti-code"></i>Projects</a>
+      <a class="sn" href="#skills"><i class="ti ti-tool"></i>Skills</a>
+      <a class="sn" href="#edu"><i class="ti ti-school"></i>Education</a>
+      <a class="sn" href="#certs"><i class="ti ti-certificate"></i>Certifications</a>
+      <a class="sn" href="#langs"><i class="ti ti-world"></i>Languages</a>
+      <a class="sn" href="#contact"><i class="ti ti-send"></i>Contact</a>
     </nav>
   </aside>
 
   <main class="main" id="main-content">
 
-    <div id="exp" class="section active">
+    <div id="exp" class="section">
       <div class="sec-hd"><i class="ti ti-briefcase"></i><h2>Work experience</h2></div>
       <div class="tl">
         <div class="tl-item">
@@ -550,14 +553,22 @@
 </footer>
 
 <script>
-function show(id, btn) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.sn, .tnav').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  if (btn) btn.classList.add('active');
-  const sideBtn = document.querySelector('.sn[onclick="show(\'' + id + '\',this)"]');
-  if (sideBtn) sideBtn.classList.add('active');
-}
+(function () {
+  const sections = Array.from(document.querySelectorAll('.section'));
+  const links = Array.from(document.querySelectorAll('.tnav, .sn'));
+
+  function setActive(id) {
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(s => observer.observe(s));
+})();
 </script>
 </body>
 </html>
